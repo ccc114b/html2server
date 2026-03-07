@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>多層次網頁排版示範</title>
+    <style>
+        /* 基礎設定 */
+        body { font-family: "Microsoft JhengHei", sans-serif; margin: 0; background-color: #f0f2f5; }
+        
+        /* 第一層：最外層容器，限制最大寬度並置中 */
+        .wrapper { max-width: 1000px; margin: 20px auto; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+
+        /* 第二層：頁首 */
+        header { background: #333; color: white; padding: 20px; text-align: center; }
+
+        /* 第二層：中間主體區域 (使用 Flexbox 讓側欄與主內容並排) */
+        .main-content { display: flex; min-height: 400px; }
+
+        /* 第三層：側邊欄 */
+        aside { width: 250px; background: #e9ecef; padding: 20px; border-right: 1px solid #ddd; }
+
+        /* 第三層：主要文章區 */
+        article { flex: 1; padding: 20px; }
+
+        /* 第四層：文章內的卡片佈局 (多個小盒子) */
+        .card-container { display: flex; gap: 15px; margin-top: 20px; }
+        .card { flex: 1; background: #fff9db; border: 1px solid #fab005; padding: 15px; border-radius: 5px; }
+
+        /* 第二層：頁尾 */
+        footer { background: #333; color: white; text-align: center; padding: 10px; font-size: 0.8em; }
+
+        /* 手機版適應 (響應式設計) */
+        @media (max-width: 600px) {
+            .main-content { flex-direction: column; } /* 側欄掉到下方 */
+            aside { width: auto; border-right: none; border-bottom: 1px solid #ddd; }
+            .card-container { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <header>
+            <h1>我的專業部落格</h1>
+        </header>
+
+        <div class="main-content">
+            
+            <aside>
+                <h3>分類目錄</h3>
+                <ul>
+                    <li>前端開發</li>
+                    <li>UI 設計</li>
+                    <li>心得分享</li>
+                </ul>
+            </aside>
+
+            <article>
+                <h2>今日主題：多層次排版</h2>
+                <p>透過嵌套不同的 &lt;div&gt;，我們可以創造出複雜的介面。</p>
+                
+                <div class="card-container">
+                    <div class="card">🚀 效率技巧</div>
+                    <div class="card">🎨 色彩美學</div>
+                    <div class="card">🛠 工具推薦</div>
+                </div>
+            </article>
+
+        </div>
+
+        <footer>
+            &copy; 2026 Gemini Learning Studio
+        </footer>
+
+    </div>
+
+</body>
+</html>
+
+

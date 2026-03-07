@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 表單元件展示</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", sans-serif; background-color: #f0f4f8; display: flex; justify-content: center; padding: 40px; }
+        
+        /* 表單外殼 */
+        .form-container { 
+            background: white; padding: 30px; border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 500px; 
+        }
+
+        h2 { color: #333; text-align: center; margin-bottom: 25px; }
+
+        /* 每一行輸入框的間距 */
+        .form-group { margin-bottom: 20px; }
+
+        /* 標籤樣式 */
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
+
+        /* 通用的輸入框樣式 */
+        input[type="text"], input[type="email"], input[type="password"], 
+        input[type="date"], input[type="number"], select, textarea {
+            width: 100%; padding: 10px; border: 1px solid #ddd; 
+            border-radius: 6px; box-sizing: border-box; /* 確保寬度包含 padding */
+            font-size: 14px;
+        }
+
+        /* 聚焦時的顏色變化 */
+        input:focus, select:focus, textarea:focus { border-color: #4a90e2; outline: none; box-shadow: 0 0 5px rgba(74,144,226,0.3); }
+
+        /* 橫向排列的元件 (Radio/Checkbox) */
+        .inline-group { display: flex; gap: 15px; align-items: center; }
+        .inline-group input { margin-right: 5px; }
+
+        /* 顏色選擇器與範圍條 */
+        .special-input { display: flex; align-items: center; gap: 20px; }
+
+        /* 提交按鈕 */
+        button {
+            width: 100%; padding: 12px; background-color: #4a90e2; color: white;
+            border: none; border-radius: 6px; font-size: 16px; cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background-color: #357abd; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>建立新帳號</h2>
+        <form action="#" method="POST">
+
+            <div class="form-group">
+                <label for="username">使用者名稱 (Text)</label>
+                <input type="text" id="username" placeholder="例如：王小明" required>
+            </div>
+
+            <div class="form-group">
+                <label for="pw">密碼 (Password)</label>
+                <input type="password" id="pw" placeholder="請輸入 6 位以上密碼">
+            </div>
+
+            <div class="form-group">
+                <label>基本資訊 (Number & Date)</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" placeholder="年齡" min="1" max="100">
+                    <input type="date">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>所在地區 (Select)</label>
+                <select>
+                    <option value="">請選擇區域</option>
+                    <option value="north">北部</option>
+                    <option value="central">中部</option>
+                    <option value="south">南部</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>性別 (Radio)</label>
+                <div class="inline-group">
+                    <label><input type="radio" name="gender" value="m"> 男</label>
+                    <label><input type="radio" name="gender" value="f"> 女</label>
+                    <label><input type="radio" name="gender" value="o"> 其他</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>興趣愛好 (Checkbox)</label>
+                <div class="inline-group">
+                    <label><input type="checkbox" name="hobby"> 程式</label>
+                    <label><input type="checkbox" name="hobby"> 設計</label>
+                    <label><input type="checkbox" name="hobby"> 音樂</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>偏好設定 (Range & Color)</label>
+                <div class="special-input">
+                    <input type="range" min="1" max="100" style="flex:1">
+                    <input type="color" value="#4a90e2">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>自我介紹 (Textarea)</label>
+                <textarea rows="3" placeholder="說點什麼吧..."></textarea>
+            </div>
+
+            <button type="submit">立即註冊</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

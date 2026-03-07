@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理解 div 的區塊排版</title>
+    <style>
+        /* 這裡開始是 CSS，用來給 div 穿衣服 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        /* 外層的大盒子 */
+        .container {
+            display: flex;         /* 啟動 Flexbox 排版（讓裡面的盒子並排） */
+            gap: 20px;            /* 設定盒子之間的間距 */
+            justify-content: center; /* 讓內容水平居中 */
+            flex-wrap: wrap;      /* 如果空間不夠，自動換行 */
+        }
+
+        /* 裡面的小盒子 */
+        .box {
+            width: 250px;
+            height: 150px;
+            color: white;
+            display: flex;
+            align-items: center;   /* 文字垂直置中 */
+            justify-content: center; /* 文字水平置中 */
+            font-weight: bold;
+            border-radius: 10px;    /* 圓角 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 陰影 */
+        }
+
+        /* 為不同盒子上色 */
+        .box-1 { background-color: #ff5f5f; }
+        .box-2 { background-color: #4db8ff; }
+        .box-3 { background-color: #5cd65c; }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">使用 div 進行區塊排版</h2>
+    <p style="text-align:center;">下面的三個彩色方塊，都是由 &lt;div&gt; 標籤構成的。</p>
+
+    <div class="container">
+        
+        <div class="box box-1">區塊 A (左側)</div>
+        <div class="box box-2">區塊 B (中間)</div>
+        <div class="box box-3">區塊 C (右側)</div>
+        
+    </div>
+
+    <div style="margin-top: 30px; text-align: center; color: #666;">
+        <p>提示：嘗試縮小瀏覽器視窗，你會發現區塊會自動排列！</p>
+    </div>
+
+</body>
+</html>
